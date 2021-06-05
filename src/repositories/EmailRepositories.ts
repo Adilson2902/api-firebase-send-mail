@@ -38,15 +38,15 @@ async sendEmail(to:string,message:string,subject:string){
             subject:subject,
             text:message
         };
-
         
-   await  transport.sendMail(mailOptions,(err,data) =>{
+        
+      await  transport.sendMail(mailOptions,(err,data) =>{
             if(err){
                 response = {
                   "type":"err",
                   err
                 }
-         
+               
             }
             if(data){
                
@@ -54,17 +54,17 @@ async sendEmail(to:string,message:string,subject:string){
                 "type":"sucess",
                 "message":"E-mail enviado com sucesso"
               }
-           
+          
             }
         
         })
 
-    
+        response = {}
 
         return response;
         
  } catch (error) {
- return  response = error;
+ return  response = error
  }
 
   }

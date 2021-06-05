@@ -40,7 +40,7 @@ async function sendEmail(){
        from:process.env.EMAIL,
        to:"nunojraa3@gmail.com",
        subject:"test",
-       text:"Oi, teste email pelo node enviado pra os 3"
+       text:"Oi, teste email pelo node enviado pra os 23"
    };
    
    

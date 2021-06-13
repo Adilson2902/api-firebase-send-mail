@@ -11,15 +11,10 @@ export class EmailFuncionts{
 
 async sendEmail(to:string,message:string,subject:string){
     const oAuth2Client = new google.auth.OAuth2(process.env.CLIENT_ID,process.env.CLIENT_SECRET,process.env.REDIRECT_URI);
-    var refresh_token ;
-    oAuth2Client.setCredentials({refresh_token:process.env.REFRESH_TOKEN});
-   await oAuth2Client.refreshAccessToken((error, tokens) => {
-      refresh_token = tokens.refresh_token
+   
+    
 
-      console.log(tokens)
-    })
-
-    oAuth2Client.setCredentials({refresh_token:refresh_token});
+    oAuth2Client.setCredentials({refresh_token:"1//04VfP97CItM6SCgYIARAAGAQSNwF-L9Ir062MQqYVH3-8_djaxnEm586iaNy_tTSa-e7hz_9a4HiaSlX2smVquk1N2kgmzxJx3oQ"});
 
     try {
       const acessToken =  await oAuth2Client.getAccessToken();
@@ -65,7 +60,10 @@ async sendEmail(to:string,message:string,subject:string){
         
         })
 
-    
+        response ={
+          "type":"sucess",
+          "message":"E-mail enviado com sucesso"
+        }
 
         return response;
         

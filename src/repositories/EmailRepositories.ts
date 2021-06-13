@@ -14,7 +14,7 @@ async sendEmail(to:string,message:string,subject:string){
    
     
 
-    oAuth2Client.setCredentials({refresh_token:"1//04VfP97CItM6SCgYIARAAGAQSNwF-L9Ir062MQqYVH3-8_djaxnEm586iaNy_tTSa-e7hz_9a4HiaSlX2smVquk1N2kgmzxJx3oQ"});
+    oAuth2Client.setCredentials({refresh_token:process.env.REFRESH_TOKEN});
 
     try {
       const acessToken =  await oAuth2Client.getAccessToken();

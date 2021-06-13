@@ -11,9 +11,15 @@ export class EmailFuncionts{
 
 async sendEmail(to:string,message:string,subject:string){
     const oAuth2Client = new google.auth.OAuth2(process.env.CLIENT_ID,process.env.CLIENT_SECRET,process.env.REDIRECT_URI);
-
+    var refresh_token ;
     oAuth2Client.setCredentials({refresh_token:process.env.REFRESH_TOKEN});
+   await oAuth2Client.refreshAccessToken((error, tokens) => {
+      refresh_token = tokens.refresh_token
 
+      console.log(tokens)
+    })
+
+    oAuth2Client.setCredentials({refresh_token:refresh_token});
 
     try {
       const acessToken =  await oAuth2Client.getAccessToken();
@@ -59,7 +65,7 @@ async sendEmail(to:string,message:string,subject:string){
         
         })
 
-        response = {}
+    
 
         return response;
         
